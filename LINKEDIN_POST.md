@@ -20,6 +20,6 @@ Result: no confirmed spyware indicators were found. But I'm not going to tell yo
 
 The interesting part was never really the yes/no answer. It's the process of collecting evidence, chasing down every alarming-looking lead to a specific explanation, and being honest about exactly where the evidence runs out.
 
-Full write-up (methodology, tooling, findings, and the limitations most reports skip): link in comments / full PDF in my portfolio.
+Full write-up (methodology, tooling, findings, and the limitations most reports skip): https://github.com/neshboy/iphone-spyware-investigation-case-study/blob/master/iPhone_Spyware_Investigation_Case_Study.pdf
 
 #DFIR #MobileForensics #Spyware #Stalkerware #CyberSecurity
