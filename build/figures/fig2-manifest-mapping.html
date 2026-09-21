@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><style>
+  :root{--ink:#0b0b0b;--ink2:#52514e;--muted:#898781;--blue:#2a78d6;--aqua:#1baf7a;--violet:#4a3aa7;--tint:#eaf2fc;}
+  *{box-sizing:border-box;}
+  body{margin:0;width:900px;font-family:"Segoe UI",Calibri,Arial,sans-serif;background:#fff;padding:28px 40px 34px;}
+  .kicker{font-size:11px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:4px;}
+  h1{font-size:18px;margin:0 0 20px;color:var(--ink);border-bottom:2px solid var(--blue);padding-bottom:8px;}
+  .row{display:flex;align-items:center;gap:14px;margin-bottom:10px;}
+  .box{flex:1;padding:14px 16px;border-radius:8px;background:var(--tint);border:1.5px solid var(--blue);font-size:14px;font-weight:600;color:var(--ink);}
+  .box .sub{display:block;font-weight:400;font-size:11.5px;color:var(--ink2);margin-top:3px;font-family:Consolas,monospace;}
+  .arrow-down{text-align:center;color:var(--muted);font-size:18px;margin:2px 0;}
+  .example{margin-top:22px;padding:16px 18px;border-radius:8px;background:#0d1117;color:#d8dee9;font-family:Consolas,monospace;font-size:12.5px;line-height:1.7;}
+  .example .g{color:#7ee787;}
+  .example .y{color:#e3b341;}
+  .example .c{color:#79c0ff;}
+  .label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:22px;margin-bottom:6px;}
+</style></head>
+<body>
+  <div class="kicker">Figure 2</div>
+  <h1>Manifest.db Resolution Path — From Hashed Filename to Real Artifact</h1>
+
+  <div class="box">Hashed Backup File<span class="sub">e.g. 3d0d7e5fb2ce2888...</span></div>
+  <div class="arrow-down">↓</div>
+  <div class="box">Manifest.db<span class="sub">fileID → domain, relativePath</span></div>
+  <div class="arrow-down">↓</div>
+  <div class="box">Original iOS Domain<span class="sub">e.g. HomeDomain, AppDomain-com.apple.MobileSMS</span></div>
+  <div class="arrow-down">↓</div>
+  <div class="box">Original File Path<span class="sub">e.g. Library/SMS/sms.db</span></div>
+  <div class="arrow-down">↓</div>
+  <div class="box" style="background:#eef7f0;border-color:var(--aqua);">Application / System Artifact<span class="sub">the actual evidence: message store, call log, contacts, ...</span></div>
+
+  <div class="label">Worked example</div>
+  <div class="example">
+    <div><span class="c">SELECT</span> fileID, domain, relativePath <span class="c">FROM</span> Files <span class="c">WHERE</span> relativePath <span class="c">LIKE</span> <span class="y">'%sms.db'</span>;</div>
+    <div style="margin-top:8px;color:#8b949e;">-- fileID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| domain&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| relativePath</div>
+    <div><span class="g">3d0d7e5fb2ce2888..</span>&nbsp;| HomeDomain&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Library/SMS/sms.db</div>
+  </div>
+</body></html>

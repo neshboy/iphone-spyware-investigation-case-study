@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><style>
+  :root{--ink:#0b0b0b;--ink2:#52514e;--muted:#898781;--blue:#2a78d6;--aqua:#1baf7a;--violet:#4a3aa7;--tint:#eaf2fc;}
+  *{box-sizing:border-box;}
+  body{margin:0;width:960px;font-family:"Segoe UI",Calibri,Arial,sans-serif;background:#fff;padding:28px 40px 34px;}
+  .kicker{font-size:11px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:4px;}
+  h1{font-size:18px;margin:0 0 18px;color:var(--ink);border-bottom:2px solid var(--blue);padding-bottom:8px;}
+  .cols{display:flex;gap:22px;}
+  .left{flex:0 0 300px;}
+  .right{flex:1;}
+  .dbrow{display:flex;gap:8px;justify-content:center;margin-bottom:10px;}
+  .dbbox{padding:10px 14px;border-radius:6px;background:var(--tint);border:1.5px solid var(--blue);font-size:12px;font-weight:700;text-align:center;}
+  .dbbox.small{background:#f6f7f9;border-color:#dfe3ea;color:var(--ink2);font-weight:600;}
+  .arrow-down{text-align:center;color:var(--muted);font-size:16px;margin:4px 0;}
+  .step{padding:9px 12px;border-radius:6px;background:#f6f7f9;border:1px solid #dfe3ea;font-size:12px;text-align:center;color:var(--ink2);}
+  .step.final{background:#fff4e8;border-color:#eb6834;color:#93401d;font-weight:700;}
+  .checklist{list-style:none;margin:0;padding:0;font-size:12.5px;color:var(--ink2);}
+  .checklist li{padding:8px 10px;border-bottom:1px solid #eee;display:flex;gap:8px;align-items:flex-start;}
+  .checklist li b{color:var(--ink);}
+  .tick{color:var(--aqua);font-weight:800;}
+  .dbs-checked{margin-top:10px;font-size:11px;color:var(--muted);text-align:center;}
+</style></head>
+<body>
+  <div class="kicker">Figure 6</div>
+  <h1>SQLite-Level Forensics — Beneath the Parsed JSON</h1>
+  <div class="cols">
+    <div class="left">
+      <div class="dbrow">
+        <div class="dbbox" style="flex:1;">Main DB</div>
+        <div class="dbbox small" style="flex:1;">WAL</div>
+        <div class="dbbox small" style="flex:1;">SHM</div>
+      </div>
+      <div class="arrow-down">↓</div>
+      <div class="step">Timeline Reconstruction</div>
+      <div class="arrow-down">↓</div>
+      <div class="step final">Suspicious Event Correlation</div>
+      <div class="dbs-checked">sms.db · AddressBook.sqlitedb · CallHistory.storedata<br>Calendar.sqlitedb · Safari History.db</div>
+    </div>
+    <div class="right">
+      <ul class="checklist">
+        <li><span class="tick">✓</span><div><b>PRAGMA integrity_check</b> on a read-only copy — all 5 databases passed</div></li>
+        <li><span class="tick">✓</span><div><b>Raw vs. parsed row counts</b> compared — matched or explainable delta</div></li>
+        <li><span class="tick">✓</span><div><b>ROWID sequence gap analysis</b> — deleted-record evidence, direct query</div></li>
+        <li><span class="tick">✓</span><div><b>PRAGMA freelist_count / page_count</b> — checked for bulk-deletion signature</div></li>
+        <li><span class="tick">✓</span><div><b>Journal mode / WAL-checkpoint state</b> — reviewed per database</div></li>
+      </ul>
+    </div>
+  </div>
+</body></html>

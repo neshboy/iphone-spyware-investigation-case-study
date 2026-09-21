@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><style>
+  :root{--ink:#0b0b0b;--ink2:#52514e;--muted:#898781;--blue:#2a78d6;--aqua:#1baf7a;--tint:#eaf2fc;--line:#e1e0d9;}
+  *{box-sizing:border-box;}
+  body{margin:0;width:1000px;font-family:"Segoe UI",Calibri,Arial,sans-serif;background:#fff;padding:28px 40px 34px;}
+  .kicker{font-size:11px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:4px;}
+  h1{font-size:18px;margin:0 0 16px;color:var(--ink);border-bottom:2px solid var(--blue);padding-bottom:8px;}
+  table{width:100%;border-collapse:collapse;font-size:12px;}
+  th{background:var(--tint);color:var(--ink);text-align:left;padding:9px 10px;border-bottom:2px solid var(--blue);font-size:11.5px;text-transform:uppercase;letter-spacing:.3px;}
+  td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink2);}
+  tr:nth-child(even) td{background:#fafbfc;}
+  .area{font-weight:700;color:var(--ink);}
+  .pill{display:inline-block;padding:3px 10px;border-radius:12px;font-size:11px;font-weight:700;white-space:nowrap;}
+  .pill.clean{background:#eef7f0;color:#0d6b49;border:1px solid #bfe6cb;}
+  .pill.open{background:#fff4e8;color:#93401d;border:1px solid #f3c9a4;}
+</style></head>
+<body>
+  <div class="kicker">Figure 7</div>
+  <h1>Final Evidence Matrix</h1>
+  <table>
+    <tr><th>Investigation Area</th><th>Evidence Checked</th><th>Finding</th></tr>
+    <tr><td class="area">Known Spyware IOCs</td><td>19 STIX2 collections, 11,619 indicators, 2 runs</td><td><span class="pill clean">No confirmed match</span></td></tr>
+    <tr><td class="area">Configuration Profiles / MDM</td><td>Profile artifacts, enrollment, install-event history</td><td><span class="pill clean">No suspicious evidence</span></td></tr>
+    <tr><td class="area">Browser &amp; WebKit Activity</td><td>Safari (83), WebKit DB (4,310), 2,392 domains</td><td><span class="pill clean">No spyware infrastructure</span></td></tr>
+    <tr><td class="area">Messaging</td><td>SMS (1,272), WhatsApp (3,446), deleted-ROWID (501 gaps)</td><td><span class="pill open">Clean, deletion pattern not clustered</span></td></tr>
+    <tr><td class="area">Applications</td><td>Bundle IDs, permissions, 74,198-entry manifest</td><td><span class="pill clean">No spyware application</span></td></tr>
+    <tr><td class="area">Permissions / Persistence</td><td>TCC grants, location-client registry (60)</td><td><span class="pill clean">No hidden persistence</span></td></tr>
+    <tr><td class="area">Databases</td><td>5 key SQLite DBs — integrity, counts, deletion evidence</td><td><span class="pill open">Sound; 1 open gap</span></td></tr>
+    <tr><td class="area">Network-Adjacent</td><td>Bluetooth/WiFi, cookies (2,321), autofill (158)</td><td><span class="pill clean">No rogue/exfil pattern</span></td></tr>
+    <tr><td class="area">Crash / Analytics Telemetry</td><td>OS analytics daily aggregates</td><td><span class="pill clean">No anomalous clustering</span></td></tr>
+  </table>
+</body></html>

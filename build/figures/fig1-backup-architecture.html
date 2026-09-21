@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><style>
+  :root{--ink:#0b0b0b;--ink2:#52514e;--muted:#898781;--blue:#2a78d6;--aqua:#1baf7a;--violet:#4a3aa7;--tint:#eaf2fc;--line:#dfe3ea;}
+  *{box-sizing:border-box;}
+  body{margin:0;width:900px;font-family:"Segoe UI",Calibri,Arial,sans-serif;background:#fff;padding:28px 40px 34px;}
+  .kicker{font-size:11px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:4px;}
+  h1{font-size:18px;margin:0 0 18px;color:var(--ink);border-bottom:2px solid var(--blue);padding-bottom:8px;}
+  .flow{display:flex;flex-direction:column;align-items:center;gap:0;}
+  .step{width:520px;padding:12px 18px;border-radius:8px;background:var(--tint);border:1.5px solid var(--blue);text-align:center;font-size:14px;font-weight:600;color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.05);}
+  .step.accent{background:#fff4e8;border-color:var(--violet);color:var(--violet);}
+  .step .sub{display:block;font-weight:400;font-size:11.5px;color:var(--ink2);margin-top:3px;}
+  .arrow{height:26px;width:2px;background:var(--muted);position:relative;}
+  .arrow::after{content:"";position:absolute;bottom:0;left:-4px;border-left:5px solid transparent;border-right:5px solid transparent;border-top:7px solid var(--muted);}
+  .final{background:var(--ink);color:#fff;border-color:var(--ink);}
+</style></head>
+<body>
+  <div class="kicker">Figure 1</div>
+  <h1>Evidence-to-Finding Pipeline — What a Backup-Based Investigation Actually Does</h1>
+  <div class="flow">
+    <div class="step">iPhone<span class="sub">source device</span></div>
+    <div class="arrow"></div>
+    <div class="step">Backup / Evidence Acquisition<span class="sub">encrypted iTunes/Finder backup, decrypted</span></div>
+    <div class="arrow"></div>
+    <div class="step">Artifact Extraction<span class="sub">MVT + iLEAPP parse raw files into structured records</span></div>
+    <div class="arrow"></div>
+    <div class="step">Database &amp; File Analysis<span class="sub">SQLite-level forensics, manifest review</span></div>
+    <div class="arrow"></div>
+    <div class="step accent">IOC Comparison<span class="sub">19 STIX2 collections · 11,619 indicators</span></div>
+    <div class="arrow"></div>
+    <div class="step">Timeline Correlation<span class="sub">cross-artifact event sequencing</span></div>
+    <div class="arrow"></div>
+    <div class="step">Analyst Review<span class="sub">false-positive triage · adversarial steelman panel</span></div>
+    <div class="arrow"></div>
+    <div class="step final">Finding<span class="sub" style="color:#cfd8e6;">calibrated, evidence-bounded conclusion</span></div>
+  </div>
+</body></html>

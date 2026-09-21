@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><style>
+  *{box-sizing:border-box;}
+  body{margin:0;width:900px;font-family:"Segoe UI",Calibri,Arial,sans-serif;background:#fff;padding:28px 40px 34px;}
+  .kicker{font-size:11px;letter-spacing:2px;color:#898781;text-transform:uppercase;margin-bottom:4px;}
+  h1{font-size:18px;margin:0 0 16px;color:#0b0b0b;border-bottom:2px solid #2a78d6;padding-bottom:8px;}
+  .badge{display:inline-block;background:#eda100;color:#3a2a00;font-weight:700;font-size:10.5px;letter-spacing:.5px;padding:3px 9px;border-radius:4px;margin-bottom:10px;}
+  .window{border-radius:10px;overflow:hidden;box-shadow:0 4px 18px rgba(0,0,0,.25);}
+  .titlebar{background:#2b2b2b;padding:9px 12px;display:flex;align-items:center;gap:8px;}
+  .dot{width:11px;height:11px;border-radius:50%;}
+  .titlebar .fname{margin-left:8px;color:#9aa0a8;font-size:11.5px;font-family:Consolas,monospace;}
+  .term{background:#0d1117;color:#d8dee9;font-family:Consolas,"Courier New",monospace;font-size:13px;line-height:1.75;padding:18px 20px 22px;}
+  .prompt{color:#7ee787;}
+  .cmd{color:#e6edf3;}
+  .flag{color:#79c0ff;}
+  .out{color:#8b949e;}
+  .ok{color:#7ee787;font-weight:700;}
+</style></head>
+<body>
+  <div class="kicker">Figure 4</div>
+  <h1>MVT / IOC Comparison — Command Pattern</h1>
+  <span class="badge">ILLUSTRATIVE RECONSTRUCTION — actual command syntax, output shown reflects the investigation's real result</span>
+  <div class="window">
+    <div class="titlebar">
+      <div class="dot" style="background:#ff5f56;"></div>
+      <div class="dot" style="background:#ffbd2e;"></div>
+      <div class="dot" style="background:#27c93f;"></div>
+      <div class="fname">mvt-ios — forensic session</div>
+    </div>
+    <div class="term">
+      <div><span class="prompt">$</span> <span class="cmd">mvt-ios check-backup --output ./results --iocs ./indicators/ ./decrypted_backup/</span></div>
+      <div class="out">[INFO] Decrypting backup... done</div>
+      <div class="out">[INFO] Extracted 28 artifact modules → ./results/</div>
+      <div style="margin-top:10px;"><span class="prompt">$</span> <span class="cmd">mvt-ios check-iocs --iocs ./indicators/ ./results/</span></div>
+      <div class="out">[INFO] Loaded 19 STIX2 indicator collections (11,619 indicators total)</div>
+      <div class="out">[INFO] Comparing sms.json, calls.json, contacts.json, safari_history.json,</div>
+      <div class="out">       webkit_resource_load_statistics.json, configuration_profiles.json, ...</div>
+      <div class="ok">[RESULT] 0 of 11,619 indicators matched</div>
+      <div class="out">[INFO] Re-run for consistency check... byte-identical output</div>
+    </div>
+  </div>
+</body></html>

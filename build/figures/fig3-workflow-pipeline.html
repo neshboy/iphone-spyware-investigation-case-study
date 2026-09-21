@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><style>
+  :root{--ink:#0b0b0b;--ink2:#52514e;--muted:#898781;--blue:#2a78d6;--aqua:#1baf7a;--violet:#4a3aa7;--orange:#eb6834;--tint:#eaf2fc;}
+  *{box-sizing:border-box;}
+  body{margin:0;width:960px;font-family:"Segoe UI",Calibri,Arial,sans-serif;background:#fff;padding:28px 40px 34px;}
+  .kicker{font-size:11px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:4px;}
+  h1{font-size:18px;margin:0 0 20px;color:var(--ink);border-bottom:2px solid var(--violet);padding-bottom:8px;}
+  .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px 16px;}
+  .cell{padding:14px;border-radius:8px;background:var(--tint);border:1.5px solid var(--blue);text-align:center;position:relative;}
+  .cell .n{position:absolute;top:6px;left:8px;font-size:10px;font-weight:700;color:var(--muted);}
+  .cell .t{font-size:13.5px;font-weight:700;color:var(--ink);margin-top:8px;}
+  .cell .s{font-size:10.5px;color:var(--ink2);margin-top:3px;}
+  .cell.mid{background:#fff4e8;border-color:var(--orange);}
+  .cell.last{background:var(--ink);border-color:var(--ink);}
+  .cell.last .t{color:#fff;}
+  .cell.last .s{color:#c9ccd1;}
+  .chevron{display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:16px;}
+</style></head>
+<body>
+  <div class="kicker">Figure 3</div>
+  <h1>Mobile Spyware Investigation Workflow</h1>
+  <div class="grid">
+    <div class="cell"><span class="n">01</span><div class="t">Device Evidence</div><div class="s">Encrypted local backup</div></div>
+    <div class="chevron">→</div>
+    <div class="cell"><span class="n">02</span><div class="t">Acquisition</div><div class="s">Owner-decrypted backup password</div></div>
+    <div class="chevron">→</div>
+    <div class="cell"><span class="n">03</span><div class="t">Backup Parsing</div><div class="s">Manifest.db resolution</div></div>
+
+    <div class="chevron">↓</div><div></div><div></div>
+
+    <div class="cell mid"><span class="n">06</span><div class="t">Timeline Analysis</div><div class="s">Cross-artifact correlation</div></div>
+    <div class="chevron">←</div>
+    <div class="cell mid"><span class="n">05</span><div class="t">IOC Matching</div><div class="s">19 STIX2 collections, 11,619 indicators</div></div>
+    <div class="chevron">←</div>
+    <div class="cell mid"><span class="n">04</span><div class="t">Artifact Extraction</div><div class="s">MVT + iLEAPP, dual-tool coverage</div></div>
+
+    <div class="chevron">↓</div><div></div><div></div>
+
+    <div class="cell"><span class="n">07</span><div class="t">False Positive Validation</div><div class="s">Context, reputation, timeline checks</div></div>
+    <div class="chevron">→</div>
+    <div class="cell"><span class="n">08</span><div class="t">Analyst Review</div><div class="s">4-analyst adversarial steelman panel</div></div>
+    <div class="chevron">→</div>
+    <div class="cell last"><span class="n" style="color:#9aa0a8;">09</span><div class="t">Forensic Assessment</div><div class="s">Evidence-bounded verdict</div></div>
+  </div>
+</body></html>
